@@ -1,2 +1,3 @@
 # CodeDaddies_list
-Its a clone of craiglist
+Its a clone of craiglist,
+made with django.
