@@ -1,0 +1,75 @@
+<!-- @format -->
+
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>Craigslist Clone</title>
+  </head>
+  <body>
+    <nav style="background-color: #1a4f69;">
+      <div class="bar container nav-wrapper">
+        <a href="/" class="brand-logo center" style="font-weight: 600;">CodeDaddies List</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/" style="font-size: 20px;">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <p style="text-align: center; font-weight: 400; font-size: 35; margin-top: 30px;">
+        Search Craigslist with CodeDaddies
+      </p>
+
+      <div class="row" style="margin-top: 70px; margin-bottom: 70px;">
+        <div class="col s4">
+          <div class="center">
+            <i class="large material-icons" style="color: #f05e5e;">flash_on</i>
+            <p>Fast craglist web scraper</p>
+            <p class="light center">Scrape away right here with a beautiful GUI.</p>
+          </div>
+        </div>
+
+        <div class="col s4">
+          <div class="center">
+            <i class="large material-icons" style="color: #f05e5e;">camera</i>
+            <p>Filter your searches</p>
+            <p class="light center">We built in functionality to filter based on pricing</p>
+          </div>
+        </div>
+
+        <div class="col s4">
+          <div class="center">
+            <i class="large material-icons" style="color: #f05e5e;">chrome_reader_mode</i>
+            <p>A much sexier front-end to Craglist</p>
+            <p class="light center">We built this with 💜</p>
+          </div>
+        </div>
+      </div>
+
+      <form action="{% url 'new_search' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="search" />
+        <button
+          style="background-color: #225f7e; border-radius: 6px;"
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+    {% block content %} {% endblock content %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
